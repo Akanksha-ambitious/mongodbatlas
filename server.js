@@ -10,6 +10,11 @@ app.use(express.json());
 // Connect DB
 connectDB();
 
+// ROOT ROUTE (Fix for Cannot GET /)
+app.get("/", (req, res) => {
+  res.send("Server is running on Render!");
+});
+
 // API
 app.post("/api/user", async (req, res) => {
   try {
